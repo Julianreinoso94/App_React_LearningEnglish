@@ -4,7 +4,6 @@ body {
 
 .App {
   text-align: center;
-  max-width: 728px;
   margin: 0 auto;
 }
 
@@ -15,7 +14,6 @@ body {
   color: white;
   position: fixed;
   width: 100%;
-  max-width: 728px;
   top: 0;
   display: flex;
   align-items: center;
@@ -60,7 +58,6 @@ form {
   bottom: 0;
   background-color: rgb(24, 23, 23);
   width: 100%;
-  max-width: 728px;
   display: flex;
   font-size: 1.5rem;
 }
@@ -106,7 +103,17 @@ button:disabled {
   max-width: 400px;
   margin: 0 auto;
 }
+.random {
+  color: #d63113;
+  background: rgb(8, 7, 7);
+  max-width: 400px;
+}
 
+.random {
+  color: #d63113;
+  background: rgb(8, 7, 7);
+  max-width: 400px;
+}
 
 
 
@@ -134,11 +141,16 @@ p {
 
 .sent {
   flex-direction: row-reverse;
+  margin-top: 25%;
 }
 
 .sent p {
   color: white;
+  font-size: 6em;
   background: #0b93f6;
+  height: 70%;
+  width:70%;
+  padding-top: 20%;
   align-self: flex-end;
 }
 .received p {
@@ -149,7 +161,6 @@ p {
 img {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   margin: 2px 5px;
 }
 

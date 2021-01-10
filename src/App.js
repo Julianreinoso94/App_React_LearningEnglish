@@ -32,6 +32,8 @@ function App() {
       <header>
         <h1>⚛️🔥💬</h1>
         <SignOut />
+        <Random />
+
       </header>
 
       <section>
@@ -51,8 +53,8 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the community guidelines or you will be banned for life!</p>
+      <button className="sign-in" onClick={signInWithGoogle}>Ingresar</button>
+      <p>Home</p>
     </>
   )
 
@@ -64,6 +66,24 @@ function SignOut() {
   )
 }
 
+function random2(){
+  var words = ["monitor", "program", "application", "keyboard", "javascript", "gaming", "network"];
+
+  var word = words[Math.floor(Math.random() * words.length)];
+  
+  console.log(word);  
+  }
+
+function Random() {
+  return auth.currentUser && (
+    <button className="random" onClick={() => random2()}>Random</button>
+  )
+}
+
+function abc(){
+  alert("hola")
+}
+
 
 function ChatRoom() {
   const dummy = useRef();
@@ -71,8 +91,10 @@ function ChatRoom() {
   const query = messagesRef.orderBy('createdAt').limit(25);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
-
+  const arrayPrueba = messages;
+                     
   const [formValue, setFormValue] = useState('');
+  const [palEspanol, setpalEspanol] = useState('');
 
 
   const sendMessage = async (e) => {
@@ -82,12 +104,14 @@ function ChatRoom() {
 
     await messagesRef.add({
       text: formValue,
+      espanol: palEspanol,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
       photoURL
     })
-
+    
     setFormValue('');
+    setpalEspanol('')
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -102,9 +126,11 @@ function ChatRoom() {
 
     <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Ingles" />
+      <input value={palEspanol} onChange={(e) => setpalEspanol(e.target.value)} placeholder="Español" />
 
       <button type="submit" disabled={!formValue}>🕊️</button>
+      <button type="submit" onChange={(e) => random2()} >Random</button>
 
     </form>
   </>)
