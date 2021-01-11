@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState,useEffect } from 'react';
 import './App.css';
 
 import firebase from 'firebase/app';
@@ -21,6 +21,26 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 const analytics = firebase.analytics();
+
+function useTimes(){
+  const[times,setTimes]= useState([])
+
+
+useEffect(()=>{
+  firebase
+  .firestore()
+  .collection('messages')
+  .onSnapshot((snapshot)=>{
+    const newTimes =snapshot.docs.map((doc)=> ({
+      id:doc.id,
+      ...doc.data()
+    }))
+    setTimes(newTimes)
+  })
+},[])
+console.log(JSON.stringify(times));
+return times
+}
 
 
 function App() {
@@ -70,6 +90,8 @@ function random2(){
   var words = ["monitor", "program", "application", "keyboard", "javascript", "gaming", "network"];
 
   var word = words[Math.floor(Math.random() * words.length)];
+
+ 
   
   console.log(word);  
   }
@@ -86,22 +108,22 @@ function abc(){
 
 
 function ChatRoom() {
+  const times= useTimes();
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(25);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
-  const arrayPrueba = messages;
                      
   const [formValue, setFormValue] = useState('');
   const [palEspanol, setpalEspanol] = useState('');
+  const [arrayNuevo,setArrayNuevo] = useState();
 
 
   const sendMessage = async (e) => {
     e.preventDefault();
 
     const { uid, photoURL } = auth.currentUser;
-
     await messagesRef.add({
       text: formValue,
       espanol: palEspanol,
@@ -113,12 +135,14 @@ function ChatRoom() {
     setFormValue('');
     setpalEspanol('')
     dummy.current.scrollIntoView({ behavior: 'smooth' });
+    //messages.map(msg =>{ a.push(msg)})
+
   }
 
   return (<>
     <main>
 
-      {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+       {times && times.map(msg => <ChatMessage key={msg.id} message={msg} />)} 
 
       <span ref={dummy}></span>
 

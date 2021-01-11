@@ -140,17 +140,17 @@ p {
 
 
 .sent {
-  flex-direction: row-reverse;
-  margin-top: 25%;
+margin:auto;
+ margin-top: 2%;
 }
 
 .sent p {
   color: white;
   font-size: 6em;
   background: #0b93f6;
-  height: 70%;
-  width:70%;
-  padding-top: 20%;
+  height: 2em;
+  width:30em;
+  padding-top: 30%;
   align-self: flex-end;
 }
 .received p {
