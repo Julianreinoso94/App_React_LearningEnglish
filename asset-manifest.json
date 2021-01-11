@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/App_React_LearningEnglish/static/css/main.fe256f49.chunk.css",
+    "main.js": "/App_React_LearningEnglish/static/js/main.6d3b92aa.chunk.js",
+    "main.js.map": "/App_React_LearningEnglish/static/js/main.6d3b92aa.chunk.js.map",
+    "runtime-main.js": "/App_React_LearningEnglish/static/js/runtime-main.58379ab1.js",
+    "runtime-main.js.map": "/App_React_LearningEnglish/static/js/runtime-main.58379ab1.js.map",
+    "static/js/2.e5a7e45f.chunk.js": "/App_React_LearningEnglish/static/js/2.e5a7e45f.chunk.js",
+    "static/js/2.e5a7e45f.chunk.js.map": "/App_React_LearningEnglish/static/js/2.e5a7e45f.chunk.js.map",
+    "index.html": "/App_React_LearningEnglish/index.html",
+    "precache-manifest.8708c7061ed34ffacbc4533b1a54753f.js": "/App_React_LearningEnglish/precache-manifest.8708c7061ed34ffacbc4533b1a54753f.js",
+    "service-worker.js": "/App_React_LearningEnglish/service-worker.js",
+    "static/css/main.fe256f49.chunk.css.map": "/App_React_LearningEnglish/static/css/main.fe256f49.chunk.css.map",
+    "static/js/2.e5a7e45f.chunk.js.LICENSE.txt": "/App_React_LearningEnglish/static/js/2.e5a7e45f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.58379ab1.js",
+    "static/js/2.e5a7e45f.chunk.js",
+    "static/css/main.fe256f49.chunk.css",
+    "static/js/main.6d3b92aa.chunk.js"
+  ]
+}
